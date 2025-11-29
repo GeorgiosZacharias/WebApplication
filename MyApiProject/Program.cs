@@ -11,6 +11,11 @@ app.MapGet("/items/{id}", (int id) =>
     return item is not null ? Results.Ok(item) : Results.NotFound();
 });
 
+app.MapPost("/items", (Item newItem) =>
+{
+    items.Add(newItem);
+    return Results.Created($"/items/{newItem.Id}", newItem);
+});
 app.MapGet("/", () => "Welcome to the Simple Web API!");
 
 app.Run();
