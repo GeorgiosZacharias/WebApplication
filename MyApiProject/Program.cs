@@ -13,9 +13,11 @@ app.MapGet("/items/{id}", (int id) =>
 
 app.MapPost("/items", (Item newItem) =>
 {
+    newItem.Id = items.Count + 1;
     items.Add(newItem);
     return Results.Created($"/items/{newItem.Id}", newItem);
 });
+
 app.MapGet("/", () => "Welcome to the Simple Web API!");
 
 app.Run();
