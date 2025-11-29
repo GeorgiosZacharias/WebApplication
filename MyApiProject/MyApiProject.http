@@ -1,6 +1,26 @@
 @MyApiProject_HostAddress = http://localhost:5098
 
-GET {{MyApiProject_HostAddress}}/weatherforecast/
+GET {{MyApiProject_HostAddress}}/items/
 Accept: application/json
 
 ###
+GET {{MyApiProject_HostAddress}}/items/1
+Accept: application/json
+
+###
+POST {{MyApiProject_HostAddress}}/items
+Content-Type: application/json
+
+{
+    "name": "NewItem"
+}
+###
+PUT {{MyApiProject_HostAddress}}/items/1
+Content-Type: application/json
+
+{
+  
+    "name": "UpdatedItem"
+}
+###
+DELETE {{MyApiProject_HostAddress}}/items/2
