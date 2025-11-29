@@ -25,6 +25,13 @@ app.MapPut("/items/{id}", (int id, Item updatedItem) =>
     item.Name = updatedItem.Name;
     return Results.Ok(item);
 });
+app.MapDelete("items/{id}", (int id) =>
+{
+    var item = items.FirstOrDefault(i => i.Id == id);
+    if (item is null) return Results.NotFound();
+    items.Remove(item);
+    return Results.NoContent();
+});
 
 app.MapGet("/", () => "Welcome to the Simple Web API!");
 
