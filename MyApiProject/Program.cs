@@ -18,6 +18,14 @@ app.MapPost("/items", (Item newItem) =>
     return Results.Created($"/items/{newItem.Id}", newItem);
 });
 
+app.MapPut("/items/{id}", (int id, Item updatedItem) =>
+{
+    var item = items.FirstOrDefault(i => i.Id == id);
+    if (item is null) return Results.NotFound();
+    item.Name = updatedItem.Name;
+    return Results.Ok(item);
+});
+
 app.MapGet("/", () => "Welcome to the Simple Web API!");
 
 app.Run();
