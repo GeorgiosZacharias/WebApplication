@@ -1,9 +1,14 @@
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddSingleton<IMyService, MyService>();
 var app = builder.Build();
-app.MapGet("/", () => "Hello World!");
+app.MapGet("/", (IMyService myService) =>
+{
+    myService.LogCreation("Root");
+    return Results.Ok("Check console for service creation log");
+});
 
 app.Run();
-builder.Services.AddSingleton<IMyService, MyService>();
+
 
 public interface IMyService
 {
