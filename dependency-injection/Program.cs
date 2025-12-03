@@ -1,9 +1,6 @@
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<IMyService, MyService>();
-// builder.Services.AddSscoped<IMyService, MyService>(); if i want each request to be scoped(different id)
-// builder.Services.AddTransient<IMyService, MyService>(); 
-//if i want each request a new service is created every time the service is requested. So each middleware and each endpoint will get a fresh instance of the service.
-
+var app = builder.Build();
 app.Use(async (context, next) =>
 {
     var myService = context.RequestServices.GetRequiredService<IMyService>();
