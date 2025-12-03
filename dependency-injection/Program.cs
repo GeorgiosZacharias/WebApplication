@@ -1,6 +1,11 @@
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
-public interface IMyInterface
+app.MapGet("/", () => "Hello World!");
+
+app.Run();
+builder.Services.AddSingleton<IMyService, MyService>();
+
+public interface IMyService
 {
     void LogCreation(string message);
 }
@@ -12,7 +17,8 @@ public class MyService : IMyService
     {
         _serviceId = new Random().Next(100000, 999999);
     }
+    public void LogCreation(string message)
+    {
+        Console.WriteLine($"{message} - Service ID: {_serviceId}");
+    }
 }
-app.MapGet("/", () => "Hello World!");
-
-app.Run();
