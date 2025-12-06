@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Builder;
-
+// test on this for example http://localhost:5084/api/ErrorHandling/division?numerator=10&denominator=5
 var builder = WebApplication.CreateBuilder(args);
 // Registers controller services so your app can use API controllers
 builder.Services.AddControllers();
@@ -22,7 +22,7 @@ app.Use(async (context, next) =>
         await context.Response.WriteAsync("Unexpected error occurred. Please try again.");   // Sends a response body to the client explaining that something went wrong
     }
 });
-
+app.MapGet("/", () => "API is running");
 app.UseRouting();// Enables endpoint routing so ASP.NET Core can match incoming requests to routes
 app.MapControllers(); // Maps controller routes (e.g., [HttpGet], [HttpPost]) so they can receive requests
 

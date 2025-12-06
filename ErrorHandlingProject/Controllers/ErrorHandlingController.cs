@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using system;
+using System;
 
 [Route("api/[controller]")]
 [ApiController]
