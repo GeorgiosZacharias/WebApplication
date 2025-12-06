@@ -1,0 +1,9 @@
+2025-12-06 22:59:49.771 +02:00 [INF] Now listening on: http://localhost:5084
+2025-12-06 22:59:49.805 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-06 22:59:49.806 +02:00 [INF] Hosting environment: Development
+2025-12-06 22:59:49.807 +02:00 [INF] Content root path: D:\STUDYING\WebApplication\ErrorHandlingProject
+2025-12-06 22:59:53.327 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5084/ - null null
+2025-12-06 22:59:53.350 +02:00 [INF] Executing endpoint 'HTTP: GET /'
+2025-12-06 22:59:53.354 +02:00 [INF] Executed endpoint 'HTTP: GET /'
+2025-12-06 22:59:53.356 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5084/ - 200 null text/plain; charset=utf-8 30.7635ms
+2025-12-06 23:00:03.822 +02:00 [INF] Application is shutting down...
