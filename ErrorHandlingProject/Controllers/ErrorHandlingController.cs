@@ -1,5 +1,5 @@
-using Microsoft.AspNetCore.MVC;
-using System;
+using Microsoft.AspNetCore.Mvc;
+using system;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -8,14 +8,12 @@ public class ErrorHandlingController : ControllerBase
     [HttpGet("division")]
     public IActionResult GetDivisionResult(int numerator, int denominator)
     {
-        try
+        if (denominator == 0)
         {
-            var result = numerator / denominator; //basic division we check later if divided by zero in the catch
-            return ok(result);
+            return BadRequest("Cannot divide by zero");
         }
-        catch (DivideByZeroException)
-        {
-            return BadRequest("Cannot Divide by zero");
-        }
+
+        var result = numerator / (double)denominator;
+        return Ok(result);
     }
 }
